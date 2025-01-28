@@ -69,5 +69,6 @@ group :test do
   gem "capybara"
   gem "selenium-webdriver"
   gem 'concurrent-ruby', '1.3.4'
+  gem 'rspec-rails'
 end
 
