@@ -1,6 +1,6 @@
 <%= form_with(model: book) do |form| %>
   <% if book.errors.any? %>
-    <div style="color: red">
+    <div id="error_explanation">
       <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
 
       <ul>
@@ -11,21 +11,27 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
+  <div class="field">
+    <%= form.label :title %>
     <%= form.text_field :title %>
-
-    <%= form.label :author, style: "display: block"%>
-    <%= form.text_field :author %>
-
-    <%= form.label :date_published, style: "display: block"%>
-    <%= form.select :date_published, Date.new(1851).year.. Date.today.year %>
-
-    <%= form.label :price, style: "display: block" %>
-    <%= form.text_field :price %>
   </div>
 
-  <div>
+  <div class="field">
+    <%= form.label :author %>
+    <%= form.text_field :author %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.number_field :price, step:0.01 %>
+  </div>
+
+  <div class="field">
+    <%= form.label :published_date %>
+    <%= form.date_field :published_date %>
+  </div>
+
+  <div class="actions">
     <%= form.submit %>
   </div>
 <% end %>

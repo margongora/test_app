@@ -1,24 +1,36 @@
-<p style="color: green"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
 <h1>Books</h1>
 
-<div id="books index">
-  <table class="listing" style="width: 100%; text-align: center;">
+<table>
+  <thead>
     <tr>
       <th>Title</th>
+      <th>Author</th>
+      <th>Price</th>
+      <th>Published date</th>
       <th>Actions</th>
+      <th colspan="3"></th>
     </tr>
+  </thead>
+
+  <tbody>
     <% @books.each do |book| %>
       <tr>
-        <td style="text-align: center"><%= book.title %></td>
-        <td class="actions" style="text-align: center">
-          <%= link_to('Show book', book_path(book)) %> |
-          <%= link_to('Edit', edit_book_path(book)) %> |
-          <%= link_to('Delete', delete_book_path(book)) %>
+        <td><%= book.title %></td>
+        <td><%= book.author %></td>
+        <td><%= book.price %></td>
+        <td><%= book.published_date %></td>
+        <td class="actions">
+          <%= link_to("Show", book_path(book), :class => 'action show') %>
+          <%= link_to("Edit", edit_book_path(book), :class => 'action edit') %>
+          <%= link_to("Delete", delete_book_path(book), :class => 'action delete') %>
         </td>
       </tr>
     <% end %>
-  </table>
-</div>
+  </tbody>
+</table>
+
 <br>
-<%= link_to "New book", new_book_path %>
+
+<%= link_to 'New Book', new_book_path %>
