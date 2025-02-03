@@ -23,6 +23,8 @@ class BooksController < ApplicationController
   def create
     @book = Book.new(book_params)
 
+    @book.date_published = Date.new(book_params['date_published'].to_i, 1, 1)  # Default to January 1st
+
     respond_to do |format|
       if @book.save
         format.html { redirect_to books_path, notice: "Book was successfully created." }

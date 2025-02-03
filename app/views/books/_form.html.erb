@@ -19,7 +19,7 @@
     <%= form.text_field :author %>
 
     <%= form.label :date_published, style: "display: block"%>
-    <%= form.select :date_published, Date.new(1851).year.. Date.today.year %>
+    <%= form.select :date_published, options_for_select((Date.new(1851).year..Date.today.year).to_a.reverse) %>
 
     <%= form.label :price, style: "display: block" %>
     <%= form.text_field :price %>
